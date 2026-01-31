@@ -1,229 +1,109 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شاهر درويش | إمبراطورية السرد</title>  <!-- Arabic Elegant Font -->  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Arabic:wght@300;400;600&display=swap" rel="stylesheet">  <!-- Font Awesome Icons -->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />  <style>
-:root {
-  --bg: #070709;
-  --panel: #0f1117;
-  --text: #f2f2f2;
-  --gold: #e6c97a;
-  --crimson: #9b1c1c;
-  --ember: #ff6a00;
+export default function Home() {
+  return (
+    <div className="bg-[#0b0e14] text-gray-100 min-h-screen overflow-hidden">
+
+      {/* ===== NAVBAR ===== */}
+      <nav className="w-full px-10 py-6 flex justify-between items-center bg-gradient-to-r from-black via-[#111827] to-black border-b border-yellow-700">
+        <h1 className="text-3xl font-extrabold tracking-widest text-yellow-400">
+          TITANIUM
+        </h1>
+        <ul className="flex gap-10 text-lg font-semibold">
+          {["الرئيسية", "العالم", "الاقتباسات", "التواصل"].map(item => (
+            <li key={item} className="hover:text-yellow-400 cursor-pointer transition">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* ===== HERO ===== */}
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <h2 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-600 to-yellow-500 mb-6">
+          عالم بلا ظلال
+        </h2>
+        <p className="max-w-3xl text-xl text-gray-300 leading-relaxed">
+          ملحمة فانتازيا عربية مظلمة، حيث لا تُنقذ النبوءات أحدًا،  
+          ولا يُغفر للآلهة صمتها.
+        </p>
+      </section>
+
+      {/* ===== QUOTES ===== */}
+      <section className="min-h-screen px-10 py-20 bg-[#0f1320]">
+        <h3 className="text-5xl font-extrabold text-center text-red-500 mb-16">
+          اقتباسات
+        </h3>
+
+        <div className="grid md:grid-cols-3 gap-10">
+
+          {/* عالم بلا ظلال */}
+          <QuoteBlock
+            title="عالم بلا ظلال"
+            quotes={[
+              "الآلهة لا تموت، لكنها تتعفن.",
+              "الخوف ليس في الظلام، بل فيما نراه بوضوح.",
+              "حين يسقط العدل، يصبح الصمت خيانة."
+            ]}
+          />
+
+          {/* دماء في الأزقة */}
+          <QuoteBlock
+            title="دماء في الأزقة"
+            quotes={[
+              "المدينة لا تنام، هي فقط تتظاهر.",
+              "كل حجر يعرف اسمي، وكل زقاق شهد دمي.",
+              "الحرب تبدأ حين يتوقف الناس عن البكاء."
+            ]}
+          />
+
+          {/* بلاد من قطن وحطب */}
+          <QuoteBlock
+            title="بلاد من قطن وحطب"
+            quotes={[
+              "نحترق ببطء كي لا نوقظ أحدًا.",
+              "الحنان أحيانًا أقسى من العنف.",
+              "كل بيت دافئ يخفي رمادًا قديمًا."
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ===== SOCIAL ===== */}
+      <section className="min-h-screen flex flex-col justify-center items-center bg-black">
+        <h3 className="text-4xl font-bold text-yellow-400 mb-10">
+          تواصل
+        </h3>
+
+        <div className="flex gap-16">
+          <Social icon="📘" name="Facebook" />
+          <Social icon="📷" name="Instagram" />
+          <Social icon="✖️" name="X / Twitter" />
+        </div>
+      </section>
+
+    </div>
+  );
 }
 
-* { box-sizing: border-box; }
+/* ===== COMPONENTS ===== */
 
-body {
-  margin: 0;
-  background: radial-gradient(circle at top, #1a1a22, var(--bg));
-  color: var(--text);
-  font-family: 'IBM Plex Arabic', 'Amiri', serif;
-  line-height: 2;
-  overflow-x: hidden;
+function QuoteBlock({ title, quotes }) {
+  return (
+    <div className="bg-[#111827] border border-gray-700 rounded-2xl p-8 shadow-xl">
+      <h4 className="text-2xl font-bold text-yellow-400 mb-6">{title}</h4>
+      <ul className="space-y-4 text-gray-300 text-lg">
+        {quotes.map((q, i) => (
+          <li key={i} className="italic">“{q}”</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-header {
-  padding: 5rem 2rem 4rem;
-  text-align: center;
-  background: linear-gradient(to bottom, #0d0f18, #070709);
-  border-bottom: 1px solid #222;
+function Social({ icon, name }) {
+  return (
+    <div className="flex flex-col items-center text-xl hover:text-yellow-400 transition cursor-pointer">
+      <div className="text-5xl mb-2">{icon}</div>
+      <span>{name}</span>
+    </div>
+  );
 }
-
-header h1 {
-  font-family: 'Amiri', serif;
-  font-size: 3.2rem;
-  margin: 0;
-  color: var(--gold);
-  text-shadow: 0 0 25px rgba(230,201,122,0.25);
-}
-
-header p {
-  opacity: 0.9;
-  max-width: 900px;
-  margin: 1.8rem auto 0;
-}
-
-nav {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  text-align: center;
-  background: linear-gradient(to bottom, #111320, #0a0b10);
-  border-bottom: 1px solid #222;
-}
-
-nav button {
-  background: transparent;
-  border: none;
-  border-left: 1px solid #1f1f2a;
-  color: var(--text);
-  padding: 1.2rem 0.5rem;
-  cursor: pointer;
-  font-family: 'IBM Plex Arabic';
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-nav button:last-child { border-left: none; }
-
-nav button:hover {
-  color: var(--gold);
-  background: rgba(230,201,122,0.08);
-}
-
-section {
-  min-height: calc(100vh - 220px);
-  padding: 4rem 2rem;
-  max-width: 1100px;
-  margin: auto;
-  display: none;
-}
-
-section.active { display: block; }
-
-h2 {
-  font-family: 'Amiri', serif;
-  color: var(--gold);
-  font-size: 2.6rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-right: 6px solid var(--crimson);
-  padding-right: 1.5rem;
-  margin-bottom: 3rem;
-  text-shadow: 0 0 25px rgba(230,201,122,0.35);
-}
-
-/* Book layout – full visible pages */
-.book {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.page {
-  background: linear-gradient(to bottom, #faf7ef, #f0ece2);
-  color: #111;
-  padding: 3.5rem 3rem;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.55);
-  position: relative;
-  font-family: 'Amiri', serif;
-  line-height: 2.1;
-}
-
-.quote-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.8rem;
-  font-style: italic;
-  background: linear-gradient(135deg, #fff6e0, #efe4c8);
-}
-
-.page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.25);
-  pointer-events: none;
-}
-
-/* Contact bar */
-.social-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: linear-gradient(to right, #0e101a, #14162a);
-  border: 1px solid #26263a;
-}
-
-.social-icon {
-  padding: 2rem 0;
-  font-size: 36px;
-  text-align: center;
-  color: var(--text);
-  transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-  background: rgba(255,255,255,0.05);
-  transform: scale(1.1);
-}
-
-.social-icon.instagram:hover { color: #e1306c; }
-.social-icon.facebook:hover { color: #1877f2; }
-.social-icon.whatsapp:hover { color: #25d366; }
-
-footer {
-  text-align: center;
-  padding: 3rem 1rem;
-  border-top: 1px solid #222;
-  opacity: 0.65;
-}
-</style></head>
-<body><header>
-  <h1>شاهر درويش</h1>
-  <p>إمبراطورية سردية مظلمة — حيث القدر يُكتب بالدم</p>
-</header><nav>
-  <button onclick="show('about')">عنّي</button>
-  <button onclick="show('titanium1')">ثيتانيوم | عالم بلا ظلال</button>
-  <button onclick="show('titanium2')">ثيتانيوم | دماء في الأزقة</button>
-  <button onclick="show('cotton')">بلاد من قطن وحطب</button>
-  <button onclick="show('contact')">التواصل</button>
-</nav><section id="about" class="active">
-  <h2>عنّي</h2>
-  <p>
-    أنا شاهر درويش، روائي وكاتب فنتازيا ملحمية تدور حول القدر والسبب، حول الدماء وسافكيها، حول القاتل وذنب المقتول، حول كل ما يستدعي إنهيار العالم وكل ما يجعل من الرؤوس فريسة سهلة والخيانة السبيل الوحيد للحفاظ على الرؤوس في أماكنها، كل ذلك وأكثر في أكبر رواية عربية في التاريخ، <strong>ثيتانيوم</strong> — إمبراطورية سردية قادمة.
-  </p>
-</section><section id="titanium1">
-  <h2>ثيتانيوم — عالم بلا ظلال</h2>
-  <div class="book">
-    <div class="page quote-page">"أول ضحية"</div>
-    <div class="page">المكان : خليج الملوك _ مملكة أوريوس<br><br>أولى خيوط الفجر تلوح في الأفق البعيد فوق مياه المحيط العظيم...</div>
-  </div>
-</section><section id="titanium2">
-  <h2>ثيتانيوم — دماء في الأزقة</h2>
-  <div class="book">
-    <div class="page quote-page">"أنموت سوياً؟"</div>
-    <div class="page">المكان: مساكن الزيفيريين — حجرة جايوس وكاثرين<br><br>"ما هذا" قال روميرو بيفيريوس وزير الخزينة...</div>
-  </div>
-</section><section id="cotton">
-  <h2>بلاد من قطن وحطب</h2>
-  <div class="book">
-    <div class="page quote-page">قد تهدم الظروف الإنسان أو تبنيه، أو تخلق إنساناً بلا إنسانية.</div>
-    <div class="page">أقدار على الألسنة<br><br>ويحدث أن يترصدك القدر...</div>
-  </div>
-</section><section id="contact">
-  <h2>التواصل</h2>
-  <div class="social-links">
-    <a href="https://www.instagram.com/shaher__drwesh?igsh=MXcwMGNsN2ppeXV6ZQ==" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-    <a href="https://www.facebook.com/share/1Dx6V9uA4s/" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
-    <a href="https://wa.me/963992931787" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-  </div>
-</section><section id="quotes">
-  <h2>اقتباسات مختارة</h2>  <h3>من عالم بلا ظلال</h3>
-  <p>«أول الضحايا لم يكن من مات… بل من صدّق أن الظلال سترحمه»</p>
-  <p>«حين سقطت الرايات، فهمنا أن السماء لا تحمي أحدًا»</p>
-  <p>«كل مملكة تبدأ بخيانة، وتنتهي بدم»</p>  <h3>من دماء في الأزقة</h3>
-  <p>«الأزقة لا تنسى خطى القتلة»</p>
-  <p>«بعض الدماء لا تُغسل… بل تُورث»</p>
-  <p>«حين صمتت الأجراس، بدأت الحرب الحقيقية»</p>  <h3>من بلاد من قطن وحطب</h3>
-  <p>«ليست كل النار تحرق… بعضها يدفئ الكارثة»</p>
-  <p>«الناس لا يُكسرون مرة واحدة»</p>
-  <p>«الوطن أحيانًا فكرة… لا مكان»</p>
-</section><footer>
-  © شاهر درويش — كل الحقوق محفوظة
-</footer><audio id="pageSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4c7c8bca7c.mp3"></audio>
-
-<script>
-  function show(id) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-
-  document.querySelectorAll('.book').forEach(book => {
-    book.addEventListener('scroll', () => {
-      document.getElementById('pageSound').play();
-    }, { once: true });
-  });
-</script></body>
-</html>
